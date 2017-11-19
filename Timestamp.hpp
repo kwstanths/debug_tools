@@ -4,6 +4,8 @@
 #include <iostream>
 #include <chrono>
 #include <string>
+#include <ctime>
+
 
 namespace debug_tools{
 

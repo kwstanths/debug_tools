@@ -6,8 +6,7 @@ namespace debug_tools{
     std::string GetStringTimestamp(){
 
         time_t current_time = time(NULL);
-		struct tm tm;
-		localtime_s(&tm, &current_time);
+		struct tm * tm = localtime(&current_time);
 
         char date[64];
         /* 
@@ -18,7 +17,7 @@ namespace debug_tools{
            %M : minute
            %S : second
          */
-        strftime(date, sizeof(date), "%H-%M-%S", &tm);
+        strftime(date, sizeof(date), "%H-%M-%S", tm);
 
         std::chrono::milliseconds ms = std::chrono::duration_cast<std::chrono::milliseconds>
             (std::chrono::system_clock::now().time_since_epoch());
@@ -33,18 +32,17 @@ namespace debug_tools{
 
     Timestamp_t GetFullTimestamp(){
         time_t current_time = time(NULL);
-		struct tm tm;
-		localtime_s(&tm, &current_time);
+		struct tm * tm = localtime(&current_time);
 
         std::chrono::milliseconds ms = std::chrono::duration_cast<std::chrono::milliseconds>
             (std::chrono::system_clock::now().time_since_epoch());
 
-        return Timestamp_t(tm.tm_year + 1900, 
-                tm.tm_mon+1, 
-                tm.tm_mday, 
-                tm.tm_hour, 
-                tm.tm_min, 
-                tm.tm_sec + 1, 
+        return Timestamp_t(tm->tm_year + 1900, 
+                tm->tm_mon+1, 
+                tm->tm_mday, 
+                tm->tm_hour, 
+                tm->tm_min, 
+                tm->tm_sec + 1, 
                 ms.count() % 1000);
 
     }

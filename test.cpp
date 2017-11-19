@@ -37,9 +37,9 @@ int main(int argc, char ** argv){
     CustomPrintHex(std::cout, 1.3);
     CustomPrintHex(std::cout, -200.3, BLUE);
 
-	CustomInfo("i", 5);
-	CustomInfo("i", 5, "j", 6);
-	CustomInfoL("Loop arguments out of bounds", CRITICAL, "i", -1, "j", -4);
+    ConsoleInfo("i", 5);
+    ConsoleInfo("i", 5, "j", 6);
+    ConsoleInfoL(CRITICAL, "Loop arguments out of bounds", "i", -1, "j", -4);
 
     std::cout << "---------------" << std::endl;
 
@@ -51,7 +51,7 @@ int main(int argc, char ** argv){
 
     /* Testing timestamp */
     Timestamp_t date = GetFullTimestamp();
-    CustomInfoL("Timestamp", INFO,
+    ConsoleInfoL(INFO, "Timestamp",
         "Year", date.year,
         "Month", date.month,
         "Day", date.day,

@@ -77,7 +77,7 @@ namespace debug_tools{
     /**
         Prints two values in this form: "\t t: v"
     */
-    template<typename Text, typename Value> void CustomInfo(Text t, Value v) {
+    template<typename Text, typename Value> void ConsoleInfo(Text t, Value v) {
     	std::cout << "\t" << t << " : " << v << std::endl;
     }
     
@@ -85,9 +85,9 @@ namespace debug_tools{
         Prints two values in this form "\t t: v" and continures the recursion to the rest arguments
         The rest of the arguments should be at least two, and always a multiple of two
     */
-    template<typename Text, typename Value, typename ... Args> void CustomInfo(Text t, Value v, Args ... args) {
+    template<typename Text, typename Value, typename ... Args> void ConsoleInfo(Text t, Value v, Args ... args) {
         std::cout << "\t" << t << " : " << v << std::endl;
-        CustomInfo(args...);
+        ConsoleInfo(args...);
     }
     
     /**
@@ -98,12 +98,12 @@ namespace debug_tools{
                     
         The rest of the arguments should be at least two, and always a multiple of two
     */
-    template<typename ... Args> void CustomInfoL(std::string text, Level level, Args ... args) {
+    template<typename ... Args> void ConsoleInfoL(Level level, std::string text, Args ... args) {
         std::pair<std::string, Color> level_info = GetLevelInfo(level);
         std::cout << GetStringTimestamp() << " [";
         CustomPrint(std::cout, level_info.first, level_info.second);
         std::cout << "] : " << text << std::endl;
-        CustomInfo(args...);
+        ConsoleInfo(args...);
     }
 
 }

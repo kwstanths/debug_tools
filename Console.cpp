@@ -22,6 +22,8 @@ namespace debug_tools{
 
     void CustomPrint(std::ostream & os, std::string text, Color fg_color){
 
+        os.precision(16);
+
         ChangeConsoleColor(fg_color);
 
         os << text;

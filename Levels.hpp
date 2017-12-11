@@ -1,7 +1,8 @@
 #ifndef __Levels_hpp__
 #define __Levels_hpp__
 
-#include <iostream>
+#include <utility>
+#include <string>
 
 #include "Colors.hpp"
 

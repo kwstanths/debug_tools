@@ -17,6 +17,14 @@
 namespace debug_tools{
     
     /**
+        Print anything fast
+        @param t What to print. Must have the << operator overloaded
+    */
+    template<typename T> void Console(T t) {
+        std::cout << t << std::endl;
+    }
+
+    /**
         Print something to console
         @param importance The importance of the message
         @param text The text to print
@@ -82,7 +90,7 @@ namespace debug_tools{
     }
     
     /**
-        Prints two values in this form "\t t: v" and continures the recursion to the rest arguments
+        Prints two values in this form "\t t: v" and continues the recursion to the rest arguments
         The rest of the arguments should be at least two, and always a multiple of two
     */
     template<typename Text, typename Value, typename ... Args> void ConsoleInfo(Text t, Value v, Args ... args) {

@@ -16,6 +16,11 @@ namespace debug_tools {
 
         public:
             /**
+                Calls Start()
+            */
+            Timer();
+
+            /**
               Store the start time 
              */
             void Start();

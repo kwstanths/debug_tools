@@ -4,8 +4,6 @@
 #include <iostream>
 #include <chrono>
 #include <string>
-#include <ctime>
-
 
 namespace debug_tools{
 
@@ -28,6 +26,12 @@ namespace debug_tools{
       @return A timestamp in a string
      */
     std::string GetStringTimestamp();
+
+    /**
+        Get a full string timestamp with year, month, day, hours, minutes, seconds, milliseconds
+        @return A timestamp ina a string
+    */
+    std::string GetStringTimestampFull();
 
     /**
       Get a current timestamp

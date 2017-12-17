@@ -6,6 +6,7 @@
 #include "Console.hpp"
 #include "Timestamp.hpp"
 #include "Timer.hpp"
+#include "CodeReminder.hpp"
 
 using namespace debug_tools;
 
@@ -77,9 +78,9 @@ int main(int argc, char ** argv){
    
     log.Log(FATAL, "Fatal error. exiting..."); 
 
-#ifdef _WIN32
-	system("pause");
-#endif
+    CodeReminder("something important");
+
+    WaitInput();
 
     return 0;
 }
